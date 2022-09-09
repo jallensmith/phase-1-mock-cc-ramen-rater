@@ -3,9 +3,10 @@ console.log("hello");
 // See all ramen images in the div with the id of ramen-menu.
 
 // When the page loads,
-// document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", (event) => {
+  event.preventDefault()
 
-// });
+});
 
 // how to grab the ramen-menu div
 const ramenMenu = document.getElementById("ramen-menu");
@@ -14,6 +15,8 @@ const ramenMenu = document.getElementById("ramen-menu");
 fetch("http://localhost:3000/ramens")
   .then((response) => response.json())
   .then((ramenArray) => {
+    console.log(ramenArray);
+
     // Then, display the image for each of the ramen using an img tag inside the #ramen-menu div.
     // iterate through the data
     ramenArray.forEach((ramen) => {
@@ -110,3 +113,4 @@ form.addEventListener("submit", (event) => {
 // Add this new ramen to the ramen-menu at the top
 
 // The new ramen should be added to the#ramen-menu div. The new ramen does not need to persist; in other words, if you refresh the page, it's okay that the new ramen is no longer on the page.
+
